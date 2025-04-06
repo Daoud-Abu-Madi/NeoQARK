@@ -1,0 +1,6 @@
+requests==2.26.0
+pluginbase==1.0.0
+jinja2==3.0.3
+javalang==0.11.0
+click==8.0.3
+six==1.16.0 

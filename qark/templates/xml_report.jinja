@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues>
+  {% if issues %}
+    {% for issue in issues %}
+    <issue id="{{ issue.id | default('unknown') }}">
+      <severity>{{ issue.severity.name | e }}</severity>
+      <name>{{ issue.name | e }}</name>
+      <description>{{ issue.description | e }}</description>
+      {% if issue.file_object %}
+      <file>
+        <path>{{ issue.file_object | e }}</path>
+        {% if issue.line_number %}
+        <line>{{ issue.line_number[0] }}</line>
+        <column>{{ issue.line_number[1] }}</column>
+        {% endif %}
+      </file>
+      {% endif %}
+    </issue>
+    {% endfor %}
+  {% else %}
+    <message>No issues found</message>
+  {% endif %}
+</issues>

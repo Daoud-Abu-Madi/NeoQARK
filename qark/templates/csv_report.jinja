@@ -1,0 +1,4 @@
+Severity,Issue Name
+{% for issue in issues %}
+{{ issue.severity.name | replace(',', '') }},{{ issue.name | replace(',', '') }}
+{% endfor %}

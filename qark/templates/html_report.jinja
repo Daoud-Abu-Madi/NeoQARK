@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      color: #e74c3c;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .issue {
+      border: 1px solid #ccc;
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .severity {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Security Issues Report</h1>
+  {% if issues %}
+    {% for issue in issues %}
+    <div class="issue">
+      <h2>{{ issue.severity.name }}: {{ issue.name }}</h2>
+      <p class="severity">Severity: {{ issue.severity.name }}</p>
+      <p>Description: {{ issue.description }}</p>
+      <p>
+        File: 
+        {% if issue.file_object %}
+          <a href="file://{{ issue.file_object }}">
+            {{ issue.file_object }}
+            {% if issue.line_number %}
+              : Line {{ issue.line_number[0] }} - Column {{ issue.line_number[1] }}
+            {% endif %}
+          </a>
+        {% else %}
+          <span>Unknown File</span>
+        {% endif %}
+      </p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>No issues found.</p>
+  {% endif %}
+</body>
+</html>

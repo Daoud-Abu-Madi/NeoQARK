@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.8"
+  - "3.9"
+
+install:
+  - pip install -r requirements.txt
+  - pip install .
+
+script:
+  - pytest  # أو أي أمر اختبار آخر تستخدمه
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
