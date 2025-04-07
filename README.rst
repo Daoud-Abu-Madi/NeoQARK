@@ -14,13 +14,20 @@
 
 
 ### 2. **Download the Tool  Run the following commands to download the tool:**
-```sudo git clone https://github.com/DaoudM2003/NeoQARK.git```
-```cd NeoQARK```
+```
+sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+
+cd NeoQARK
+```
 
 
 
 ### 3. **Move to bin**
-```sudo mv NeoQARK /usr/local/bin```
+```
+
+sudo mv NeoQARK /usr/local/bin
+
+```
 
 
 ### 4. **Crete Virtual enviroment**
