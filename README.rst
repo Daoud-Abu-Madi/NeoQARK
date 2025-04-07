@@ -5,7 +5,34 @@
 ## **How to Download and Install the Tool**
 
 
+NeoQARK
+=======
 
+Requirements
+------------
+
+Tested on Python 2.7-13 and 3.6. Tested on OSX, Linux, and Windows
+
+Usage
+-----
+
+For more options please see the ``--help`` command.
+
+**APK:**
+
+.. code-block:: bash
+
+    qark --apk path/to/my.apk
+
+**Java source code files:**
+
+.. code-block:: bash
+
+    qark --java path/to/parent/java/folder
+    qark --java path/to/specific/java/file.java
+
+Results
+-------
 
 
 ### 1. **Ensure the tool is installed in the correct path**
