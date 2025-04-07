@@ -1,4 +1,4 @@
-# qarkd
+# NeoQARK
 
 
 
@@ -14,48 +14,30 @@ cd /usr/local/bin
 ### 2. **Download the Tool**
 Run the following commands to download the tool:
 ```bash
-sudo git clone https://github.com/DaoudM2003/qarkd.git
-cd qarkd
+sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+cd NeoQARK
 ```
 ### 3. **Move to bin**
 ```bash
-sudo mv qarkd /usr/local/bin 
-sudo mv ..... /home/kali/Downloads 
-cd ..
+sudo mv NeoQARK /usr/local/bin 
 ```
 
-### 4. **Set Up the Tool**
+### 4. **Crete Virtual enviroment**
 ```bash
-sudo chmod +x too
-```
-### 5. **Download the File Tool**
-```bash
-qarkd
+python3 -m venv env1
+source env1/bin/activate
+
 ```
 
-How to Use
+### 5. **Download the jar**
 ```bash
-qarkd --help
-qarld -h
+sudo apt-get install default-jdk
+jar --version
 ```
 
-Show Help
+### 5. **Set Up The NeoQARK Tool , in NeoQARK Directory**
 ```bash
-qarkd --help
+pip3 install -r requirements.txt
+pip3 install .
+pip install --upgrade --force-reinstall .
 ```
-
-Show the Tool Version
-```bash
-qarkd --version
-```
-
-update Tool
-```bash
-qarkd --update
-```
-
-remove
-```bash
-qarkd --remove
-```
-
