@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /path/to/python3 /path/to/qark/qark.py "$@"
