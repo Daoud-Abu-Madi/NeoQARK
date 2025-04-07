@@ -27,7 +27,7 @@ class HostnameVerifier(CoroutinePlugin):
     """
     This plugin checks if:
      1. `AllowAllHostnameVerifier` is instantiated
-     2. `setHostnameVerifier` is called with a value of `.ALLOW_ALL_HOSTNAME_VERIFIERS`
+     2. `setHostnameVerifier` is called with a value of `.ALLOW_ALL_HOSTNAME_VERIFIER`
     """
     def __init__(self):
         super().__init__(category="cert", name="Hostname Verifier")
@@ -38,24 +38,29 @@ class HostnameVerifier(CoroutinePlugin):
             _, class_ = await self.yield_data()
 
             if isinstance(class_, ClassCreator):
-                if class_.type.name == "AllowAllHostnameVerifier":
-                    self.issues.append(Issue(category=self.category, name="Allow all hostname verifier used",
-                                             severity=Severity.WARNING, description=ALLOW_ALL_HOSTNAME_VERIFIER_DESC,
-                                             file_object=self.file_path))
-
-                elif class_.type.name in ("NullHostNameVerifier", "NullHostnameVerifier"):
-                    self.issues.append(Issue(category=self.category, name="Allow all hostname verifier used",
-                                             severity=Severity.WARNING, description=ALLOW_ALL_HOSTNAME_VERIFIER_DESC,
-                                             file_object=self.file_path))
+                if class_.type.name in ("AllowAllHostnameVerifier", "NullHostNameVerifier", "NullHostnameVerifier"):
+                    self.issues.append(Issue(
+                        category=self.category,
+                        name="Allow all hostname verifier used",
+                        severity=self.severity,
+                        description=ALLOW_ALL_HOSTNAME_VERIFIER_DESC,
+                        file_object=self.file_path
+                    ))
 
             elif isinstance(class_, MethodInvocation):
                 if (class_.member == "setHostnameVerifier"
                         and len(class_.arguments) == 1
-                        and isinstance(class_.arguments[0], MemberReference)
+                        and (isinstance(class_.arguments[0], MemberReference)
+                             or type(class_.arguments[0]) is MemberReference)
                         and class_.arguments[0].member == "ALLOW_ALL_HOSTNAME_VERIFIER"):
-                    self.issues.append(Issue(category=self.category, name="setHostnameVerifier set to ALLOW_ALL",
-                                             severity=Severity.WARNING, description=ALLOW_ALL_HOSTNAME_VERIFIER_DESC,
-                                             file_object=self.file_path, line_number=class_.position))
+                    self.issues.append(Issue(
+                        category=self.category,
+                        name="setHostnameVerifier set to ALLOW_ALL",
+                        severity=self.severity,
+                        description=ALLOW_ALL_HOSTNAME_VERIFIER_DESC,
+                        file_object=self.file_path,
+                        line_number=class_.position
+                    ))
 
 
 plugin = HostnameVerifier()
