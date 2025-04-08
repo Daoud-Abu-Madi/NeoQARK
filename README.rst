@@ -2,7 +2,7 @@
 
 
 
-## **How to Download and Install the Tool**
+**How to Download and Install the Tool**
 
 
 NeoQARK
@@ -35,12 +35,12 @@ Results
 -------
 
 
-### 1. **Ensure the tool is installed in the correct path**
+**1. Ensure the tool is installed in the correct path**
 ```cd /usr/local/bin```
 
 
 
-### 2. **Download the Tool  Run the following commands to download the tool:**
+**2. Download the Tool  Run the following commands to download the tool:**
 ```
 sudo git clone https://github.com/DaoudM2003/NeoQARK.git
 
@@ -49,27 +49,35 @@ cd NeoQARK
 
 
 
-### 3. **Move to bin**
-```
+** 3. Move to bin**
+
+.. code-block:: bash
 
 sudo mv NeoQARK /usr/local/bin
 
-```
-
-
-### 4. **Crete Virtual enviroment**
-```python3 -m venv env1```
-```source env1/bin/activate```
 
 
 
-### 5. **Download the jar**
-```sudo apt-get install default-jdk```
-```jar --version```
+**4. Crete Virtual enviroment**
+.. code-block:: bash
+
+   python3 -m venv env1
+   source env1/bin/activate
+
+
+
+**5. Download the jar**
+
+.. code-block:: bash
+   
+   sudo apt-get install default-jdk
+   jar --version
 
 
 
 ### 5. **Set Up The NeoQARK Tool , in NeoQARK Directory**
-```pip3 install -r requirements.txt```
-```pip3 install .```
-```pip install --upgrade --force-reinstall . ```
+ 
+.. code-block:: bash
+   pip3 install -r requirements.txt
+   pip3 install .
+   pip install --upgrade --force-reinstall . 
