@@ -33,6 +33,6 @@
 
    sudo apt-get install default-jdk
    jar --version
-   pip3 install -r requirements.txt
-   pip3 install .
+   pip install -r requirements.txt
+   pip install .
    pip install --upgrade --force-reinstall . 
