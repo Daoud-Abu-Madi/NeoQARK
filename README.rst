@@ -1,8 +1,10 @@
-# NeoQARK
+**NeoQARK**
+===========
 
 
 
 **How to Download and Install the Tool**
+----------------------------------------
 
 
 
@@ -46,6 +48,9 @@
 
 .. code-block:: bash
 
+   pip3 install -r requirements.txt
+   pip3 install .
+   pip install --upgrade --force-reinstall . 
    sudo apt-get install default-jdk
    jar --version
 
@@ -55,6 +60,4 @@
  
 .. code-block:: bash
 
-   pip3 install -r requirements.txt
-   pip3 install .
-   pip install --upgrade --force-reinstall . 
+
