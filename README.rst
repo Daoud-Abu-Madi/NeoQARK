@@ -7,44 +7,27 @@
 ----------------------------------------
 
 
-
-**1.Ensure the tool is installed in the correct path**
-
-.. code-block:: bash
-
-    cd /usr/local/bin
-
-
-
-**2.Download the Tool**
+**1.Download the Tool**
 
 .. code-block:: bash
 
+   cd /usr/local/bin
    sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+   sudo chown -R user_name NeoQARK
    cd NeoQARK
 
 
 
-
-**3.Move to bin**
-
-.. code-block:: bash
-
-   sudo mv NeoQARK /usr/local/bin
-
-
-
-
-**4.Crete Virtual enviroment**
+**2.Crete Virtual enviroment**
 
 .. code-block:: bash
 
-   python3 -m venv env1
+   sudo python3 -m venv env1
    source env1/bin/activate
 
 
 
-**5.Setup The NeoQARK Tool in qark directory**
+**3.Setup The NeoQARK Tool in qark directory**
 
 .. code-block:: bash
 
