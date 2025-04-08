@@ -6,9 +6,10 @@
 
 
 
-**1. Ensure the tool is installed in the correct path**
+**1.Ensure the tool is installed in the correct path**
 
 .. code-block:: bash
+
     cd /usr/local/bin
 
 
