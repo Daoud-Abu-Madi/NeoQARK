@@ -1,61 +1,38 @@
-# qarkd
+**NeoQARK**
+===========
 
 
 
-## **How to Download and Install the Tool**
-
-### 1. **Ensure the tool is installed in the correct path**
-```bash
-cd /usr/local/bin
-```
+**How to Download and Install the Tool**
+----------------------------------------
 
 
+**1.Download the Tool**
 
-### 2. **Download the Tool**
-Run the following commands to download the tool:
-```bash
-sudo git clone https://github.com/DaoudM2003/qarkd.git
-cd qarkd
-```
-### 3. **Move to bin**
-```bash
-sudo mv qarkd /usr/local/bin 
-sudo mv ..... /home/kali/Downloads 
-cd ..
-```
+.. code-block:: bash
 
-### 4. **Set Up the Tool**
-```bash
-sudo chmod +x too
-```
-### 5. **Download the File Tool**
-```bash
-qarkd
-```
+   cd /usr/local/bin
+   sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+   sudo chown -R user_name NeoQARK
+   cd NeoQARK
 
-How to Use
-```bash
-qarkd --help
-qarld -h
-```
 
-Show Help
-```bash
-qarkd --help
-```
 
-Show the Tool Version
-```bash
-qarkd --version
-```
+**2.Crete Virtual enviroment**
 
-update Tool
-```bash
-qarkd --update
-```
+.. code-block:: bash
 
-remove
-```bash
-qarkd --remove
-```
+   sudo python3 -m venv env1
+   source env1/bin/activate
 
+
+
+**3.Setup The NeoQARK Tool in qark directory**
+
+.. code-block:: bash
+
+   sudo apt-get install default-jdk
+   jar --version
+   pip install -r requirements.txt
+   pip install .
+   pip install --upgrade --force-reinstall . 
