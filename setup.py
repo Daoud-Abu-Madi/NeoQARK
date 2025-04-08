@@ -14,27 +14,26 @@ exploit_apk_files = [os.path.join(dir_path, filename).replace(os.path.join(QARK_
 with io.open('README.rst', 'rt', encoding='utf8') as f:
     long_description = f.read()
 
-# وظيفة لإنشاء ملف qark التنفيذي
+# وظيفة لإنشاء ملف qark التنفيذي في مجلد البيئة بشكل ديناميكي
 def create_qark_script():
-    # استخدام مسار مفسر Python الحالي (الخاص بالبيئة الافتراضية)
+    # الحصول على مسار مفسر Python الحالي (داخل البيئة الافتراضية)
     python_path = sys.executable
-    # المسار النسبي لـ qark.py داخل المشروع
-    qark_py_path = os.path.abspath(os.path.join(QARK_DIR, "qark.py"))
-    # مسار السكربت التنفيذي
-    qark_script_path = os.path.join(QARK_DIR, "qark")
+    # الحصول على مسار qark.py بعد التثبيت في site-packages
+    site_packages = os.path.join(os.path.dirname(python_path), "..", "lib", "python3.13", "site-packages")
+    qark_py_path = os.path.join(site_packages, QARK_DIR, "qark.py")
+    # مسار السكربت في مجلد bin الخاص بالبيئة
+    qark_script_path = os.path.join(os.path.dirname(python_path), "qark")
     
     with open(qark_script_path, 'w') as f:
         f.write('#!/bin/sh\n')
         f.write(f'exec {python_path} {qark_py_path} "$@"\n')
     os.chmod(qark_script_path, 0o755)  # جعل الملف قابلًا للتنفيذ
 
-# إنشاء السكربت أثناء التثبيت
-create_qark_script()
-
+# إعداد الحزمة
 setup(
     name="qark",
     version="4.0.0",
-    packages=find_packages(exclude=["tests*"]),
+    packages=find_packages(exclude=["tests*"]),  # سيجد تلقائيًا qark و decompiler
     package_dir={QARK_DIR: QARK_DIR},
     package_data={
         QARK_DIR: [
@@ -60,9 +59,6 @@ setup(
     license="Apache 2.0",
     keywords="android security qark exploit",
     url="https://www.github.com/linkedin/qark",
-    entry_points="""
-        [console_scripts]
-        qark=qark.qark:cli""",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
@@ -72,5 +68,7 @@ setup(
         "Operating System :: Unix",
         "Programming Language :: Python :: 3.6",
     ],
-    scripts=[os.path.join(QARK_DIR, "qark")],
 )
+
+# استدعاء الدالة بعد التثبيت لإنشاء السكربت
+create_qark_script()
