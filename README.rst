@@ -7,7 +7,8 @@
 
 
 **1. Ensure the tool is installed in the correct path**
-```cd /usr/local/bin```
+.. code-block:: bash
+    cd /usr/local/bin
 
 
 
