@@ -11,10 +11,9 @@
 
 .. code-block:: bash
 
-   cd /usr/local/bin
+   
    sudo git clone https://github.com/DaoudM2003/NeoQARK.git
-   sudo chown -R user_name NeoQARK
-   cd NeoQARK
+  
 
 
 
@@ -27,10 +26,12 @@
 
 
 
+
 **3.Setup The NeoQARK Tool in qark directory**
 
 .. code-block:: bash
 
+   cd NeoQARK
    sudo apt-get install default-jdk
    jar --version
    pip install -r requirements.txt
