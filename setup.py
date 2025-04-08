@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 import os
 import io
+import sys
 
 QARK_DIR = "qark"
 LIB_DIR = os.path.join(QARK_DIR, "lib")
@@ -15,13 +16,19 @@ with io.open('README.rst', 'rt', encoding='utf8') as f:
 
 # وظيفة لإنشاء ملف qark التنفيذي
 def create_qark_script():
-    qark_script_path = os.path.join(QARK_DIR, "qark")  # المسار حيث نريد إنشاء الملف التنفيذي
+    # استخدام مسار مفسر Python الحالي (الخاص بالبيئة الافتراضية)
+    python_path = sys.executable
+    # المسار النسبي لـ qark.py داخل المشروع
+    qark_py_path = os.path.abspath(os.path.join(QARK_DIR, "qark.py"))
+    # مسار السكربت التنفيذي
+    qark_script_path = os.path.join(QARK_DIR, "qark")
+    
     with open(qark_script_path, 'w') as f:
         f.write('#!/bin/sh\n')
-        f.write('exec /path/to/python3 /path/to/qark/qark.py "$@"\n')  # استبدل المسار بالمسار الصحيح
-    os.chmod(qark_script_path, 0o755)  # تأكد من أن الملف قابل للتنفيذ
+        f.write(f'exec {python_path} {qark_py_path} "$@"\n')
+    os.chmod(qark_script_path, 0o755)  # جعل الملف قابلًا للتنفيذ
 
-# إنشاء السكربت qark أثناء التثبيت
+# إنشاء السكربت أثناء التثبيت
 create_qark_script()
 
 setup(
@@ -65,5 +72,5 @@ setup(
         "Operating System :: Unix",
         "Programming Language :: Python :: 3.6",
     ],
-    scripts=[os.path.join(QARK_DIR, "qark")],  # تحديد السكربت qark الذي سيتم إنشاؤه
+    scripts=[os.path.join(QARK_DIR, "qark")],
 )
