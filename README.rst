@@ -44,7 +44,7 @@
 
 
 
-**5.Setup The NeoQARK Tool**
+**5.Setup The NeoQARK Tool in qark directory**
 
 .. code-block:: bash
 
