@@ -6,42 +6,29 @@
 
 
 
-
-**APK:**
-
-.. code-block:: bash
-
-    qark --apk path/to/my.apk
-
-
-
-
 **1. Ensure the tool is installed in the correct path**
 ```cd /usr/local/bin```
 
 
 
 **2. Download the Tool  Run the following commands to download the tool:**
-```
-sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+.. code-block:: bash
+   sudo git clone https://github.com/DaoudM2003/NeoQARK.git
+   cd NeoQARK
 
-cd NeoQARK
-```
 
 
 
 ** 3. Move to bin**
 
 .. code-block:: bash
-
-sudo mv NeoQARK /usr/local/bin
+   sudo mv NeoQARK /usr/local/bin
 
 
 
 
 **4. Crete Virtual enviroment**
 .. code-block:: bash
-
    python3 -m venv env1
    source env1/bin/activate
 
@@ -50,13 +37,12 @@ sudo mv NeoQARK /usr/local/bin
 **5. Download the jar**
 
 .. code-block:: bash
-   
    sudo apt-get install default-jdk
    jar --version
 
 
 
-### 5. **Set Up The NeoQARK Tool , in NeoQARK Directory**
+### 6. **Set Up The NeoQARK Tool , in NeoQARK Directory**
  
 .. code-block:: bash
    pip3 install -r requirements.txt
