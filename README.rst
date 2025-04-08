@@ -16,7 +16,7 @@
 
 
 
-**2.Download the Tool  Run the following commands to download the tool:**
+**2.Download the Tool**
 
 .. code-block:: bash
 
@@ -26,7 +26,7 @@
 
 
 
-** 3.Move to bin**
+**3.Move to bin**
 
 .. code-block:: bash
 
@@ -44,20 +44,12 @@
 
 
 
-**5.Download the jar**
+**5.Setup The NeoQARK Tool**
 
 .. code-block:: bash
 
+   sudo apt-get install default-jdk
+   jar --version
    pip3 install -r requirements.txt
    pip3 install .
    pip install --upgrade --force-reinstall . 
-   sudo apt-get install default-jdk
-   jar --version
-
-
-
-**6.Set Up The NeoQARK Tool , in NeoQARK Directory**
- 
-.. code-block:: bash
-
-
